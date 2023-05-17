@@ -112,3 +112,7 @@ a {
 }
 
 
+.item-list-items {
+  display: flex;
+  gap: 24px;
+}
