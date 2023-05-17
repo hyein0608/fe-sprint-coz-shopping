@@ -1,42 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-function Main () {
-  
+import Item from '../components/Item';
 
-    fetch('http://cozshopping.codestates-seb.link/api/v1/products?count=4')
-    .then((resp) => resp.json())
-    .then((data) => console.log(data))
+const Main = () => {
+  const [sellData, setSellData] = useState([]);
+  const [bookmarkData, setBookmarkData] = useState([]);
 
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetch(
+        'http://cozshopping.codestates-seb.link/api/v1/products?count=4'
+      ).then(resp => resp.json());
+      return data;
+    };
 
-    return (
-        <div id="item-list-container">
-          <div id="item-list-body">
-            <div id="item-list-title">상품 리스트</div>
-            <div id="item-list-title">북마크 리스트</div>
-            {/* <img alt='img'></img> */}
-            {/* {items.map((item) => {
-              return (
+    getData().then(d => {
+      setSellData(d);
+    });
+    getData().then(d => {
+      setBookmarkData(d);
+    });
+  }, []);
 
-              <div key={item.id} className='item'>
-                <img className='item-img' src={item.image_url} alt={item.name}></img>
-              
-              </div>
-
-              ) */}
-
-
-
-              {/* return (
-                <div key={item.id} className="item">
-                <img className="item-img" src={item.img} alt={item.name}></img>
-                <span className="item-name">{item.name}</span>
-                <span className="item-price">{item.price}</span>
-                <button className="item-button" onClick={(e) => handleClick(e, item.id)}>장바구니 담기</button>
-              </div>
-              ) */}
+  return (
+    <div id="item-list-container">
+      <div id="item-list-body">
+        <div className="item-list-row">
+          <div id="item-list-title">상품 리스트</div>
+          <div className="item-list-items">
+            {sellData.map(d => (
+              <Item data={d} />
+            ))}
           </div>
         </div>
-      );
-}
+        <div>
+          <div id="item-list-title">북마크 리스트</div>
+          <div className="item-list-items">
+            {bookmarkData.map(d => (
+              <Item data={d} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Main;
