@@ -4,10 +4,7 @@
   margin: 0;
 }
 
-body {
-  height: 1000px;
-}
-
+/* nav */
 nav {
   background-color: white;
   width: 100%;
@@ -16,22 +13,23 @@ nav {
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
   top: 0;
   display: flex;
-  place-items: center;
+  align-items: center;
   justify-content: left;
 }
 
 h1 {
   vertical-align: middle;
   margin-left: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 #logo {
-  width: 40px;
   margin-left: 4rem;
   vertical-align: middle;
 }
 
-#menu-icon {
+#hamburger-icon {
   width: 40px;
   height: 40px;
   position: absolute;
@@ -55,7 +53,7 @@ h1 {
   filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.1));
 }
 
-.item {
+.menu-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,6 +74,7 @@ a {
   text-decoration: none;
 }
 
+/* footer */
 .footer {
   display: flex;
   flex-direction: column;
@@ -91,8 +90,9 @@ a {
   color: gray;
 }
 
+/* Main Page */
 #item-list-container {
-  height: 1000px;
+  height: 100vh;
 }
 
 #item-list-title {
@@ -110,16 +110,22 @@ a {
 }
 
 .item-box {
-  width: 264px;
   display: flex;
   flex-direction: column;
 }
 
 .item-box-upper > img {
   border-radius: 12px;
-  width: 100%;
+  width: 264px;
   height: 210px;
   object-fit: cover;
+}
+
+.img-star {
+  transform: translate(0, -150%);
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
 }
 
 .item-box-lower {
@@ -130,6 +136,7 @@ a {
 .item-box-title {
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
 }
 
 .item-box-percent {
@@ -163,9 +170,64 @@ a {
 }
 
 .close {
-    color: black;
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
+.image-modal-title {
+  position: absolute;
+  bottom: 2rem;
+  left: 4rem;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Product Page */
+.product-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+.product-boxes {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-circles {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 26px;
+  gap: 36px;
+}
+
+.product-circle-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-type-current {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.item-type-none {
+  margin-top: 6px;
+  text-align: center;
+}
+
+.modal-star {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  color: white;
+}
+
+.percent {
+  color: blue;
+}
