@@ -3,7 +3,7 @@ import Product from './ProductPage';
 
 const Bookmark = ({ bookmarks }) => {
     return (
-        <Product items={bookmarks} />
+        <Product productItems={bookmarks}/>
     )
 };
 
